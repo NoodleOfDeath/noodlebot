@@ -1,0 +1,49 @@
+#!/bin/sh
+
+(
+
+  source /home/noodle/.bash_profile
+  
+  cd $(dirname $0)
+  
+  args=()
+  force=false
+  
+  while (( "$#" )); do
+    case "$1" in
+      -f) force=true; shift;;
+      *) args=( "${args[@]}" "$1" ); shift;;
+    esac
+  done
+  
+  sdate=
+  for f in ./*; do
+    if [[ "$(basename $f)" == "$(basename $0)" ]] || [[ "$(basename $f)" == "server2.lock" ]]; then
+      continue
+    fi
+    ndate=$(mtime $f)
+    if [[ $ndate > $sdate ]]; then
+      sdate=$ndate
+    fi
+  done
+  
+  if [ -f server2.lock ]; then
+    ldate=$(mtime server2.lock)
+  fi
+  
+  if [[ $sdate > $ldate ]]; then
+    force=true
+  fi
+  
+  if [ $force == true ]; then
+    echo "reloading changes in server script"
+    ps aux | grep test.js | grep -v grep | awk {'print $2'} | xargs kill -9
+  fi
+  
+  if [[ $(ps aux | grep node | grep test.js -c) < 1 ]]; then
+    echo "starting up noodlebot service test.js"
+    node test.js &
+    touch -m server2.lock
+  fi
+
+)

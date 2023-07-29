@@ -1,0 +1,135 @@
+{
+	
+	"commands": {
+		"name": "commands",
+		"description": "Sends you a list of available commands."
+	},
+	
+	"promote": {
+		"name": "promote",
+		"description": "Promotes a member to the specified role.",
+		"options": [
+			{
+				"name": "user",
+				"description": "User to promote",
+				"type": 6,
+				"required": true
+			}, {
+				"name": "role",
+				"description": "Role to promote the user to",
+				"type": 8,
+				"required": true
+			}
+		]
+	},
+	"demote": {
+		"name": "demote",
+		"description": "Demotes a member of the specified role.",
+		"options": [
+			{
+				"name": "user",
+				"description": "User to demote",
+				"type": 6,
+				"required": true
+			}, {
+				"name": "role",
+				"description": "Role to demote the user of",
+				"type": 8,
+				"required": true
+			}
+		]
+	},
+	
+	"factions": {
+		"name": "factions",
+		"description": "Sends you a list of joinable factions and which factions you already belong to."
+	},
+	"join": {
+		"name": "join",
+		"description": "Join a faction. Use the /factions command to see a list of all faction.",
+		"options": [
+			{
+				"name": "faction",
+				"description": "Faction to join",
+				"type": 8,
+				"required": true
+			}
+		]
+	}, 
+	"leave": {
+		"name": "leave",
+		"description": "Leave a faction. Use the /factions command to see a list of all factions.",
+		"options": [
+			{
+				"name": "faction",
+				"description": "Faction to leave",
+				"type": 8,
+				"required": true
+			}
+		]
+	}, 
+	
+	"verify": {
+		"name": "verify",
+		"description": "Verifies a user.",
+		"options": [
+			{
+				"name": "user",
+				"description": "User to verify",
+				"type": 6,
+				"required": true
+			}
+		]
+	}, 
+	"unverify": {
+		"name": "unverify",
+		"description": "Unverifies a user.",
+		"options": [
+			{
+				"name": "user",
+				"description": "User to unverify",
+				"type": 6,
+				"required": true
+			}
+		]
+	}, 
+	"captain": {
+		"name": "captain",
+		"description": "Makes a user a captain.",
+		"options": [
+			{
+				"name": "user",
+				"description": "User to make a captain",
+				"type": 6,
+				"required": true
+			}
+		]
+	}, 
+	"uncaptain": {
+		"name": "uncaptain",
+		"description": "Makes a user no longer a captain.",
+		"options": [
+			{
+				"name": "user",
+				"description": "User to make no longer a captain",
+				"type": 6,
+				"required": true
+			}
+		]
+	},
+	
+	"request": {
+		"name": "request",
+		"description": "Requests a role and notifies members who can provide it.",
+		"options": [
+			{
+				"name": "role",
+				"description": "Role to request",
+				"type": 8,
+				"required": true
+			}
+		]
+	}
+	
+}
+
